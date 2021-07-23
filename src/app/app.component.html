@@ -28,7 +28,7 @@
   <hr />
   <div class="row"></div>
   <div class="col-sm-12">
-    <div class="card" *ngFor="let element of serverElements">
+    <div class="card mb-3" *ngFor="let element of serverElements">
       <div class="card-header font-weight-bold" [class.bg-warning]="element.type === 'server'">
         {{ element.serverName }}
       </div>

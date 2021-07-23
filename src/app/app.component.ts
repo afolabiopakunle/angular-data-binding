@@ -22,7 +22,14 @@ export class AppComponent  {
   }
 
   addPC() {
+    this.serverElements.push({
+      type: 'pc',
+      serverName: this.serverName,
+      content: this.content
+    })
 
+    this.content = '';
+    this.serverName = '';
   }
   serverElements = [];
 }
