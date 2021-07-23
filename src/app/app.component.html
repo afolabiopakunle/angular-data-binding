@@ -1,29 +1,42 @@
 <div class="container">
   <div class="row">
-  <div class="col-sm-12">
-    <p class="text-dark">
-    Add new servers or blueprints
-    </p>  
-    <label class="font-weight-bold" for="name">Server Content</label>
-    <input id="name" type="text" class="form-control mb-3" [(ngModel)]="newServerName">
+    <div class="col-sm-12">
+      <p class="text-dark">
+        Add new servers or blueprints
+      </p>
+      <label class="font-weight-bold" for="name">Server Title</label>
+      <input
+        id="name"
+        type="text"
+        class="form-control mb-3"
+        [(ngModel)]="serverName"
+      />
 
-    <label class="font-weight-bold" for="content">Server Content</label>
-    <textarea [(ngModel)]="content" class="form-control" name="" id="content" cols="30" rows="5"></textarea>
+      <label class="font-weight-bold" for="content">Server Content</label>
+      <textarea
+        [(ngModel)]="content"
+        class="form-control mb-3"
+        name=""
+        id="content"
+        cols="30"
+        rows="5"
+      ></textarea>
+      <button (click)="addServer()" class="btn btn-warning mr-3">Add Server</button>    
+      <button (click)="addPC()" class="btn btn-primary">Add PC</button>    
+    </div>
   </div>
-  </div>
-  <hr>
-  <div class="row">
-  
-  </div>
+  <hr />
+  <div class="row"></div>
   <div class="col-sm-12">
-  <div class="card">
-  <div class="card-header font-weight-bold">
-    Featured
-  </div>
-  <div class="card-body">
-    
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-  </div>
-</div>
+    <div class="card" *ngFor="let element of serverElements">
+      <div class="card-header font-weight-bold" [class.bg-warning]="element.type === 'server'">
+        {{ element.serverName }}
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          {{ element.content }}
+        </p>
+      </div>
+    </div>
   </div>
 </div>
